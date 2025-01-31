@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="freeSpace">20dp</dimen>
+    <dimen name="widthOfButtons">66dp</dimen>
+    <dimen name="cornerRadiusForOperationsSectionAndButtons">33dp</dimen>
+    <dimen name="buttonsTextSize">35sp</dimen>
+    <dimen name="spaceBetweenButtons">8dp</dimen>
+
+</resources>

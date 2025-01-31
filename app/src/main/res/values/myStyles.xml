@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="mathOperationBtnStyle" parent="">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/buttonsTextSize</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/back_unselected_operation_light</item>
+    </style>
+
+    <style name="operationBtnStyle" parent="">
+        <item name="android:textColor">@color/textColorOfButtons_light</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/buttonsTextSize</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@drawable/back_unselected_operation_light</item>
+    </style>
+
+    <style name="styleOfNumBtn">
+        <item name="android:textColor">@color/textColorOfButtons_light</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/buttonsTextSize</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/widthOfButtons</item>
+        <item name="android:background">@drawable/back_num_btn_light</item>
+    </style>
+</resources>

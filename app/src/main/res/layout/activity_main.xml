@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <View
+        android:id="@+id/sectionScreen"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/back_screen_section_light"
+        app:layout_constraintBottom_toTopOf="@id/sectionNum"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1" />
+
+    <View
+        android:id="@+id/sectionNum"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/back_num_section_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sectionScreen"
+        app:layout_constraintVertical_weight="1.4" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/btnSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:checked="false"
+        android:thumb="@drawable/thumb"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:thumbTint="@null"
+        app:track="@drawable/track"
+        app:trackDecoration="@null"
+        app:trackTint="@null" />
+
+    <ImageView
+        android:id="@+id/equalsIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/freeSpace"
+        android:layout_marginBottom="@dimen/freeSpace"
+        android:src="@drawable/ic_equals_for_light_theme"
+        app:layout_constraintBottom_toTopOf="@id/sectionNum"
+        app:layout_constraintLeft_toLeftOf="@id/sectionScreen" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/operationsProcess"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginRight="30dp"
+        android:background="@null"
+        android:inputType="textImeMultiLine"
+        android:textAlignment="textEnd"
+        android:textColor="@color/textColorOfOperationsProcess_light"
+        android:textColorHint="@color/textColorOfOperationsProcess_light"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/backspace"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/backspace"
+        app:layout_constraintTop_toTopOf="@id/backspace">
+
+        <requestFocus />
+    </androidx.appcompat.widget.AppCompatEditText>
+
+    <ImageView
+        android:id="@+id/backspace"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="@dimen/freeSpace"
+        android:layout_marginBottom="@dimen/freeSpace"
+        android:src="@drawable/ic_backspace"
+        app:layout_constraintBottom_toTopOf="@id/resultNumber"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/calculateSection"
+        app:constraint_referenced_ids="operationsProcess,backspace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/resultNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/freeSpace"
+        android:fontFamily="@font/roboto_bold"
+        android:text="123456789"
+        android:textAlignment="textEnd"
+        android:textColor="@color/textColorOfResultNumber_light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/equalsIcon"
+        app:layout_constraintLeft_toRightOf="@id/equalsIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/equalsIcon" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/resultSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="equalsIcon,resultNumber" />
+
+    <View
+        android:id="@+id/mathOperationsSection"
+        android:layout_width="@dimen/widthOfButtons"
+        android:layout_height="0dp"
+        android:layout_marginVertical="@dimen/freeSpace"
+        android:layout_marginRight="@dimen/freeSpace"
+        android:background="@drawable/back_operations_section_light"
+        app:layout_constraintBottom_toBottomOf="@id/sectionNum"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sectionNum" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/operationDivision"
+        style="@style/mathOperationBtnStyle"
+        android:layout_weight="1"
+        android:text="@string/textOfDivision"
+        app:layout_constraintBottom_toTopOf="@+id/operationMultiplication"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="@id/mathOperationsSection"
+        app:layout_constraintRight_toRightOf="@id/mathOperationsSection"
+        app:layout_constraintTop_toTopOf="@id/mathOperationsSection"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/operationMultiplication"
+        style="@style/mathOperationBtnStyle"
+        android:layout_weight="1"
+        android:text="@string/multiplication"
+        app:layout_constraintBottom_toTopOf="@+id/operationSubtraction"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="@id/mathOperationsSection"
+        app:layout_constraintRight_toRightOf="@id/mathOperationsSection"
+        app:layout_constraintTop_toBottomOf="@id/operationDivision" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/operationSubtraction"
+        style="@style/mathOperationBtnStyle"
+        android:layout_weight="1"
+        android:text="@string/subtraction"
+        app:layout_constraintBottom_toTopOf="@+id/operationAddition"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="@id/mathOperationsSection"
+        app:layout_constraintRight_toRightOf="@id/mathOperationsSection"
+        app:layout_constraintTop_toBottomOf="@id/operationMultiplication" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/operationAddition"
+        style="@style/mathOperationBtnStyle"
+        android:layout_weight="1"
+        android:text="@string/addition"
+        app:layout_constraintBottom_toTopOf="@+id/operationEquals"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="@id/mathOperationsSection"
+        app:layout_constraintRight_toRightOf="@id/mathOperationsSection"
+        app:layout_constraintTop_toBottomOf="@id/operationSubtraction" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/operationEquals"
+        style="@style/mathOperationBtnStyle"
+        android:layout_weight="1"
+        android:text="@string/equals"
+        app:layout_constraintBottom_toBottomOf="@id/mathOperationsSection"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="@id/mathOperationsSection"
+        app:layout_constraintRight_toRightOf="@id/mathOperationsSection"
+        app:layout_constraintTop_toBottomOf="@id/operationAddition" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupOfMathOperationButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="operationDivision,operationMultiplication,operationSubtraction,operationAddition,operationEquals" />
+
+    <View
+        android:id="@+id/operationSection"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/widthOfButtons"
+        android:layout_marginHorizontal="@dimen/freeSpace"
+        android:background="@drawable/back_operations_section_light"
+        app:layout_constraintBottom_toTopOf="@+id/btnNumberOne"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/mathOperationsSection"
+        app:layout_constraintTop_toTopOf="@id/mathOperationsSection"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/operationAC"
+        style="@style/operationBtnStyle"
+        android:layout_weight="1"
+        android:text="@string/clear"
+        app:layout_constraintBottom_toBottomOf="@id/operationSection"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="@id/operationSection"
+        app:layout_constraintRight_toLeftOf="@id/operationPlusMinus"
+        app:layout_constraintTop_toTopOf="@id/operationSection" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/operationPlusMinus"
+        style="@style/operationBtnStyle"
+        android:layout_weight="1"
+        android:text="@string/plusMinus"
+        app:layout_constraintBottom_toBottomOf="@id/operationSection"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/operationAC"
+        app:layout_constraintRight_toLeftOf="@id/bracket"
+        app:layout_constraintTop_toTopOf="@id/operationSection" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bracket"
+        style="@style/operationBtnStyle"
+        android:layout_weight="1"
+        android:text="@string/bracket"
+        app:layout_constraintBottom_toBottomOf="@id/operationSection"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/operationPlusMinus"
+        app:layout_constraintRight_toRightOf="@id/operationSection"
+        app:layout_constraintTop_toTopOf="@id/operationSection" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberOne"
+        style="@style/styleOfNumBtn"
+        android:text="@string/one"
+        app:layout_constraintBottom_toTopOf="@id/btnNumberFour"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="@+id/operationSection"
+        app:layout_constraintRight_toLeftOf="@id/btnNumberTwo"
+        app:layout_constraintTop_toBottomOf="@+id/operationSection" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberTwo"
+        style="@style/styleOfNumBtn"
+        android:layout_marginHorizontal="@dimen/spaceBetweenButtons"
+        android:text="@string/two"
+        app:layout_constraintBottom_toBottomOf="@id/btnNumberOne"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/btnNumberOne"
+        app:layout_constraintRight_toLeftOf="@id/btnNumberThree"
+        app:layout_constraintTop_toTopOf="@id/btnNumberOne" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberThree"
+        style="@style/styleOfNumBtn"
+        android:text="@string/three"
+        app:layout_constraintBottom_toBottomOf="@id/btnNumberOne"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/btnNumberTwo"
+        app:layout_constraintRight_toRightOf="@+id/operationSection"
+        app:layout_constraintTop_toTopOf="@id/btnNumberOne" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberFour"
+        style="@style/styleOfNumBtn"
+        android:text="@string/four"
+        app:layout_constraintBottom_toTopOf="@id/btnNumberSeven"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="@id/btnNumberOne"
+        app:layout_constraintRight_toLeftOf="@id/btnNumberFive"
+        app:layout_constraintTop_toBottomOf="@id/btnNumberOne" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberFive"
+        style="@style/styleOfNumBtn"
+        android:layout_marginHorizontal="@dimen/spaceBetweenButtons"
+        android:text="@string/five"
+        app:layout_constraintBottom_toBottomOf="@id/btnNumberFour"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/btnNumberFour"
+        app:layout_constraintRight_toLeftOf="@id/btnNumberSix"
+        app:layout_constraintTop_toTopOf="@id/btnNumberFour" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberSix"
+        style="@style/styleOfNumBtn"
+        android:text="@string/six"
+        app:layout_constraintBottom_toBottomOf="@id/btnNumberFour"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/btnNumberFive"
+        app:layout_constraintRight_toRightOf="@id/operationSection"
+        app:layout_constraintTop_toTopOf="@id/btnNumberFour" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberSeven"
+        style="@style/styleOfNumBtn"
+        android:text="@string/seven"
+        app:layout_constraintBottom_toTopOf="@id/btnPoint"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="@id/btnNumberFour"
+        app:layout_constraintRight_toLeftOf="@id/btnNumberEight"
+        app:layout_constraintTop_toBottomOf="@id/btnNumberFour" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberEight"
+        style="@style/styleOfNumBtn"
+        android:layout_marginHorizontal="@dimen/spaceBetweenButtons"
+        android:text="@string/eight"
+        app:layout_constraintBottom_toBottomOf="@id/btnNumberSeven"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/btnNumberSeven"
+        app:layout_constraintRight_toLeftOf="@id/btnNumberNine"
+        app:layout_constraintTop_toTopOf="@id/btnNumberSeven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberNine"
+        style="@style/styleOfNumBtn"
+        android:text="@string/nine"
+        app:layout_constraintBottom_toBottomOf="@id/btnNumberSeven"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/btnNumberEight"
+        app:layout_constraintRight_toRightOf="@id/operationSection"
+        app:layout_constraintTop_toTopOf="@id/btnNumberSeven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPoint"
+        style="@style/styleOfNumBtn"
+        android:text="@string/point"
+        app:layout_constraintBottom_toBottomOf="@+id/mathOperationsSection"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="@id/btnNumberSeven"
+        app:layout_constraintRight_toLeftOf="@id/btnNumberZero"
+        app:layout_constraintTop_toBottomOf="@id/btnNumberSeven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNumberZero"
+        style="@style/styleOfNumBtn"
+        android:layout_marginHorizontal="@dimen/spaceBetweenButtons"
+        android:text="@string/zero"
+        app:layout_constraintBottom_toBottomOf="@id/btnPoint"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/btnPoint"
+        app:layout_constraintRight_toLeftOf="@id/btnDoubleZero"
+        app:layout_constraintTop_toTopOf="@id/btnPoint" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDoubleZero"
+        style="@style/styleOfNumBtn"
+        android:text="@string/doubleZero"
+        app:layout_constraintBottom_toBottomOf="@id/btnPoint"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toRightOf="@id/btnNumberZero"
+        app:layout_constraintRight_toRightOf="@id/operationSection"
+        app:layout_constraintTop_toTopOf="@id/btnPoint" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupOfNumberButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="btnNumberOne,btnNumberTwo,btnNumberThree,btnNumberFour,btnNumberFive,btnNumberSix,btnNumberSeven,btnNumberEight,btnNumberNine,btnPoint,btnNumberZero,btnDoubleZero" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

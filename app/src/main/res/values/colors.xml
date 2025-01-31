@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="lightBlack">#636363</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="backColorOfOperationsSection_light">#4DFFFFFF</color>
+    <color name="backColorOfOperationsSection_dark">#4D050505</color>
+    <color name="backColorActiveOperation_light">#80FFFFFF</color>
+    <color name="backColorActiveOperation_dark">#80050505</color>
+    <color name="backColorInactiveOperation_light">#00FFFFFF</color>
+    <color name="backColorInactiveOperation_dark">#00FFFFFF</color>
+    <color name="backColorOfNumButtons_light">#4DFFFFFF</color>
+    <color name="backColorOfNumButtons_dark">#4D050505</color>
+    <color name="backColorPressedButton_light">#80FFFFFF</color>
+    <color name="backColorPressedButton_dark">#80050505</color>
+    <color name="textColorOfOperationsProcess_light">#80373737</color>
+    <color name="textColorOfOperationsProcess_dark">#80FBFBFB</color>
+    <color name="textColorOfResultNumber_light">#373737</color>
+    <color name="textColorOfResultNumber_dark">#FBFBFB</color>
+    <color name="textColorOfButtons_light">#373737</color>
+    <color name="textColorOfButtons_dark">#FBFBFB</color>
+
+</resources>
